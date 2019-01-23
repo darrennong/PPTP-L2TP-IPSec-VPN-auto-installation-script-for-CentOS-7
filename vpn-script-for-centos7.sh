@@ -60,8 +60,8 @@ if [[ $(printf "$ethlist\n" | wc -l) -gt 2 ]]; then
     fi
 fi
 
-#设置VPN拨号后分配的IP段
-iprange="10.0.1"
+#设置VPN拨号后分配的IP段 #iprange=10.0.1
+iprange="10.0"
 echo "Please input IP-Range:"
 printf "(Default IP-Range: \e[33m$iprange\e[0m): "
 read iprangetmp
@@ -79,7 +79,7 @@ if [[ -n "$mypsktmp" ]]; then
 fi
 
 #设置VPN用户名
-username="ueibo.com"
+username="darren"
 echo "Please input VPN username:"
 printf "(Default VPN username: \e[33mueibo.com\e[0m): "
 read usernametmp
@@ -99,7 +99,8 @@ randstr() {
 }
 
 #设置VPN用户密码
-password=$(randstr)
+#password=$(randstr)
+password="h5ex.com"
 printf "Please input \e[33m$username\e[0m's password:\n"
 printf "Default password is \e[33m$password\e[0m, let it blank to use default password: "
 read passwordtmp
@@ -115,10 +116,10 @@ echo "Server IP:"
 echo "$serverip"
 echo
 echo "Server Local IP:"
-echo "$iprange.1"
+echo "$iprange.0.1"
 echo
 echo "Client Remote IP Range:"
-echo "$iprange.10-$iprange.254"
+echo "$iprange.0.10-$iprange.254.254"
 echo
 echo "PSK:"
 echo "$mypsk"
@@ -229,8 +230,8 @@ logwtmp
 #bcrelay eth1
 #delegate
 #connections 100
-localip $iprange.2
-remoteip $iprange.200-254
+localip $iprange.0.1
+remoteip $iprange.0.200-$iprange.254.254
 
 EOF
 
@@ -259,8 +260,8 @@ listen-addr = $serverip
 auth file = /etc/ppp/chap-secrets
 port = 1701
 [lns default]
-ip range = $iprange.10-$iprange.199
-local ip = $iprange.1
+ip range = $iprange.1.10-$iprange.199.199
+local ip = $iprange.1.1
 refuse chap = yes
 refuse pap = yes
 require authentication = yes
@@ -337,6 +338,7 @@ ipcp-accept-remote
 require-mschap-v2
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
+ms-dns 202.103.24.68
 asyncmap 0
 auth
 crtscts
