@@ -70,16 +70,16 @@ if [[ -n "$iprangetmp" ]]; then
 fi
 
 #设置预共享密钥
-mypsk="ueibo.cn"
+mypsk="zzbwuhan.com"
 echo "Please input PSK:"
-printf "(Default PSK: \e[33mueibo.cn\e[0m): "
+printf "(Default PSK: \e[33mzzbwuhan.com\e[0m): "
 read mypsktmp
 if [[ -n "$mypsktmp" ]]; then
     mypsk=$mypsktmp
 fi
 
 #设置VPN用户名
-username="darren"
+username="zzbwuhan"
 echo "Please input VPN username:"
 printf "(Default VPN username: \e[33mueibo.com\e[0m): "
 read usernametmp
@@ -100,7 +100,7 @@ randstr() {
 
 #设置VPN用户密码
 #password=$(randstr)
-password="h5ex.com"
+password="zzbwuhan.com"
 printf "Please input \e[33m$username\e[0m's password:\n"
 printf "Default password is \e[33m$password\e[0m, let it blank to use default password: "
 read passwordtmp
