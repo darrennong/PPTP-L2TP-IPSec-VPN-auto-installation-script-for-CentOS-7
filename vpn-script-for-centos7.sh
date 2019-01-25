@@ -4,7 +4,7 @@
 # This is a PPTP and L2TP VPN installation for CentOS 7     #
 # Version: 1.1.1 20160507                                   #
 # Author: Bon Hoo                                           #
-# Website: http://www.ccwebsite.com                         #
+# Website: https://www.zzbwuhan.com                         #
 #                                                           #
 #############################################################
 
@@ -28,7 +28,7 @@ printf "
 # This is a PPTP and L2TP VPN installation for CentOS 7     #
 # Version: 1.1.1 20160507                                   #
 # Author: Bon Hoo                                           #
-# Website: http://www.ccwebsite.com                         #
+# Website: https://www.zzbwuhan.com                         #
 #                                                           #
 #############################################################
 "
@@ -441,7 +441,7 @@ printf "
 # This is a PPTP and L2TP VPN installation for CentOS 7     #
 # Version: 1.1.1 20160507                                   #
 # Author: Bon Hoo                                           #
-# Website: http://www.ccwebsite.com                         #
+# Website: https://www.zzbwuhan.com                         #
 #                                                           #
 #############################################################
 if there are no [FAILED] above, then you can
