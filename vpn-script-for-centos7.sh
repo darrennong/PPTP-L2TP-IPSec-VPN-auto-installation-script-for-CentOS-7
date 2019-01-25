@@ -61,7 +61,7 @@ if [[ $(printf "$ethlist\n" | wc -l) -gt 2 ]]; then
 fi
 
 #设置VPN拨号后分配的IP段 #iprange=10.0.1
-iprange="10.0"
+iprange="10.0.0"
 echo "Please input IP-Range:"
 printf "(Default IP-Range: \e[33m$iprange\e[0m): "
 read iprangetmp
@@ -116,10 +116,10 @@ echo "Server IP:"
 echo "$serverip"
 echo
 echo "Server Local IP:"
-echo "$iprange.0.1"
+echo "$iprange.1"
 echo
 echo "Client Remote IP Range:"
-echo "$iprange.0.10-$iprange.254.254"
+echo "$iprange.2-$iprange.254"
 echo
 echo "PSK:"
 echo "$mypsk"
@@ -230,8 +230,8 @@ logwtmp
 #bcrelay eth1
 #delegate
 #connections 100
-localip $iprange.0.1
-remoteip $iprange.0.200-$iprange.254.254
+localip $iprange.1
+remoteip $iprange.2-$iprange.254
 
 EOF
 
@@ -260,8 +260,8 @@ listen-addr = $serverip
 auth file = /etc/ppp/chap-secrets
 port = 1701
 [lns default]
-ip range = $iprange.1.10-$iprange.199.199
-local ip = $iprange.1.1
+ip range = $iprange.2-$iprange.249
+local ip = $iprange.1
 refuse chap = yes
 refuse pap = yes
 require authentication = yes
