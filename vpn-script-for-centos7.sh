@@ -81,7 +81,7 @@ fi
 #设置VPN用户名
 username="zzbwuhan"
 echo "Please input VPN username:"
-printf "(Default VPN username: \e[33mueibo.com\e[0m): "
+printf "(Default VPN username: \e[33$username\e[0m): "
 read usernametmp
 if [[ -n "$usernametmp" ]]; then
     username=$usernametmp
@@ -225,13 +225,13 @@ option /etc/ppp/options.pptpd
 #debug
 # stimeout 10
 #noipparam
-logwtmp
+#logwtmp
 #vrf test
 #bcrelay eth1
 #delegate
 #connections 100
 localip $iprange.1
-remoteip $iprange.2-$iprange.254
+remoteip $iprange.2-254
 
 EOF
 
@@ -341,8 +341,8 @@ ms-dns 8.8.4.4
 ms-dns 202.103.24.68
 asyncmap 0
 auth
-crtscts
-lock
+#crtscts
+#lock
 hide-password
 modem
 debug
@@ -420,6 +420,7 @@ firewall-cmd --permanent --add-service=l2tpd
 firewall-cmd --permanent --add-service=ipsec
 firewall-cmd --permanent --add-masquerade
 firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -p tcp -i ppp+ -j TCPMSS --syn --set-mss 1356
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT 0 -i $eth -p gre -j ACCEPT
 firewall-cmd --reload
 #iptables --table nat --append POSTROUTING --jump MASQUERADE
 #iptables -t nat -A POSTROUTING -s $iprange.0/24 -o $eth -j MASQUERADE
